@@ -4,7 +4,7 @@ import locale
 
 from announcement import course_list, learnr
 
-locale.setlocale(locale.LC_TIME, "id") # Use Indonesian language for datetime data
+locale.setlocale(locale.LC_TIME, "id_ID.utf8") # Use Indonesian language for datetime data
 
 st.title('Announcement Template')
 st.write('Select the informations below based on the class you manage.')
