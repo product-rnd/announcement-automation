@@ -1,10 +1,10 @@
 # Project Structure
 
 - `Algoritma_Class_Announcement.py` : Streamlit Dashboard Quiz Grader
-- `pages\1_🏫_Create_Announcement.py` : Page pembuatan draft announcement
-- `pages\2_📝_Announcement_Template.py` : Page pembuatan template announcement
-- `announcement.py` : Python Script penyimpanan function announcement Classroom
-- `requirements.txt` : Library-library yang diperlukan untuk menjalankan aplikasi
+- `pages\1_🏫_Create_Announcement.py` : Draft announcement creation page
+- `pages\2_📝_Announcement_Template.py` : Announcement template creation page
+- `announcement.py` : Helper script
+- `requirements.txt` : Required dependency libraries
 
 # How to Use: Algoritma Class Announcement
 
