@@ -39,7 +39,7 @@ def get_students(creds, ACTIVE_STUDENT_ID, SHEET_RANGE, SCORE_ACADEMY_ID, EMAIL_
 
 
 # Create draft announcement with assigned students
-def announce(creds, courses, course_name, classroom_df, text):
+def announce(creds, courses, course_name, classroom_df, session):
     # Call Classroom API
     service = build('classroom', 'v1', credentials=creds)
 
@@ -66,10 +66,17 @@ def announce(creds, courses, course_name, classroom_df, text):
             student_id.append(student['userId'])
         elif "@algorit.ma" in student['profile']['emailAddress']:
             student_id.append(student['userId'])
+        elif (student['profile']['emailAddress'] == "algostudentday@gmail.com") & (session == 'Day Online'):
+            student_id.append(student['userId'])
+        elif (student['profile']['emailAddress'] == "algostudentnight0@gmail.com") & (session == 'Night Online'):
+            student_id.append(student['userId'])
+        elif (student['profile']['emailAddress'] == "algostudentnight1@gmail.com") & (session == 'Night Onsite'):
+            student_id.append(student['userId'])
+
 
     # Create the announcement body and settings
     body = {
-        'text': text,
+        'text': session,
         'state': "DRAFT",
         'assigneeMode': 'INDIVIDUAL_STUDENTS',
         "individualStudentsOptions": {
@@ -88,6 +95,7 @@ def course_list(specialization):
                 'Exploratory Data Analysis (EDA)', 
                 'Data Wrangling and Visualization (DWV)', 
                 'Structured Query Language (SQL)',
+                'Capstone Project Data Analytics',
                 'Introduction to Machine Learning I (IML1)', 
                 'Introduction to Machine Learning II (IML2)']
 
@@ -95,7 +103,8 @@ def course_list(specialization):
         return ['Programming for Data Science (P4DS)',
                 'Practical Statistic (PS)', 
                 'Data Visualization (DV)', 
-                'Interactive Plotting (IP)']
+                'Interactive Plotting (IP)',
+                'Capstone Project Data Visualization']
 
     elif specialization == 'Machine Learning':
         return ['Regression Model (RM)', 
@@ -103,7 +112,8 @@ def course_list(specialization):
                 'Classification in Machine Learning II (C2)', 
                 'Unsupervised Learning (UL)', 
                 'Time Series & Forecasting (TSF)', 
-                'Neural Network and Deep Learning (NN)']
+                'Neural Network and Deep Learning (NN)',
+                'Capstone Project Machine Learning']
     else:
         return ['']
 
