@@ -13,6 +13,7 @@ st.write(
 3. Fill your classroom's name, batch, specialization, and session.
 4. Make sure the sheet name in Algoritma Score Academy and Active Student is correct.
 5. Press the **Create Announcement** button to create draft announcement
+6. To edit the draft announcement, open Google Classroom and click **Saved Announcements**
 ''')
 
 st.subheader('Create Annoncement Template')
