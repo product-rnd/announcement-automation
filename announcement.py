@@ -59,20 +59,27 @@ def announce(creds, courses, course_name, classroom_df, session):
 
 
     student_id = []
+    missing_student = []
 
     # Get students id based on students' classroom email
     for student in students:
-        if student['profile']['emailAddress'] in classroom_df['Email Classroom'].tolist():
-            student_id.append(student['userId'])
-        elif "@algorit.ma" in student['profile']['emailAddress']:
-            student_id.append(student['userId'])
-        elif (student['profile']['emailAddress'] == "algostudentday@gmail.com") & (session == 'Day Online'):
-            student_id.append(student['userId'])
-        elif (student['profile']['emailAddress'] == "algostudentnight0@gmail.com") & (session == 'Night Online'):
-            student_id.append(student['userId'])
-        elif (student['profile']['emailAddress'] == "algostudentnight1@gmail.com") & (session == 'Night Onsite'):
-            student_id.append(student['userId'])
 
+        student_email = student['profile']['emailAddress'].lower()
+
+        if student_email in classroom_df['Email Classroom'].tolist():
+            student_id.append(student['userId'])
+        elif "@algorit.ma" in student_email:
+            student_id.append(student['userId'])
+        elif (student_email == "algostudentday@gmail.com") & (session == 'Day Online'):
+            student_id.append(student['userId'])
+        elif (student_email == "algostudentnight0@gmail.com") & (session == 'Night Online'):
+            student_id.append(student['userId'])
+        elif (student_email == "algostudentnight1@gmail.com") & (session == 'Night Onsite'):
+            student_id.append(student['userId'])
+        else:
+            missing_student.append(student_email)
+
+    classroom_df.loc[classroom_df['Email Classroom'].isin(missing_student), 'Status'] = '❌ Missing'    
 
     # Create the announcement body and settings
     body = {
@@ -86,6 +93,8 @@ def announce(creds, courses, course_name, classroom_df, session):
 
     # Create the announcement
     response = service.courses().announcements().create(courseId=course_id, body=body).execute()
+
+    return classroom_df
 
 
 def course_list(specialization):

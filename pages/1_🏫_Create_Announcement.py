@@ -139,12 +139,12 @@ if session != None:
 
     with st.spinner('Creating Announcement...'):
         if announce_button:
-            try:
+            # try:
                 # Get student's data from score academy and active students spreadsheets 
                 classroom_df = get_students(creds, ACTIVE_STUDENT_ID, ACTIVE_RANGE, SCORE_ACADEMY_ID, EMAIL_RANGE)
 
                 # Create announcement draft in the chosen classroom and assigns the students automatically
-                announce(creds, courses, course_name, classroom_df, session)
+                classroom_df = announce(creds, courses, course_name, classroom_df, session)
 
                 st.success("Announcement Created!", icon='🎊')
                 if classroom_df['Status'].str.contains('❌').any():
@@ -155,8 +155,8 @@ if session != None:
 
                 st.balloons()
 
-            except:
-                st.error('Spreadsheet not Found', icon='⚠')
+            # except:
+            #     st.error('Spreadsheet not Found', icon='⚠')
         
         
 
