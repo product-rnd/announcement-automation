@@ -102,7 +102,7 @@ Kami telah mendokumentasikan <b>Frequently Asked Questions (FAQ)</b> yang dapat 
 
 
 Apabila Bapak/Ibu mengalami kendala dalam proses pembelajaran silahkan menghubungi kami melalui :
-- Untuk pertanyaan administratif, silakan kirim email ke mentor@algorit.ma.
+- Untuk pertanyaan administratif, silakan kirim email ke product@algoritmadata.id .
 - Untuk pertanyaan teknis dan materi pembelajaran, Anda dapat bergabung di https://github.com/teamalgoritma/community/discussions.
 
 
@@ -161,7 +161,7 @@ Kami telah mendokumentasikan <b>Frequently Asked Questions (FAQ)</b> yang dapat 
 
 
 Apabila Bapak/Ibu mengalami kendala dalam proses pembelajaran silahkan menghubungi kami melalui :
-- Untuk pertanyaan administratif, silakan kirim email ke mentor@algorit.ma.
+- Untuk pertanyaan administratif, silakan kirim email ke product@algoritmadata.id .
 - Untuk pertanyaan teknis dan materi pembelajaran, Anda dapat bergabung di https://github.com/teamalgoritma/community/discussions.
 
 
